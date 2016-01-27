@@ -28,6 +28,9 @@
                                     <segment title="Near"/>
                                 </segments>
                                 <color key="tintColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeProximityType:" destination="9pv-A4-QxB" eventType="valueChanged" id="HmZ-c5-HiU"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JDS-bk-uqR">
                                 <rect key="frame" x="115" y="464" width="465" height="30"/>
@@ -40,6 +43,9 @@
                                 <state key="normal" title="Track Point">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="trackPoint:" destination="9pv-A4-QxB" eventType="touchUpInside" id="H7u-YU-kQg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBc-zw-iRO">
                                 <rect key="frame" x="505" y="395" width="80" height="30"/>
@@ -50,6 +56,9 @@
                                 <state key="normal" title="Locate">
                                     <color key="titleColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="getCurrentLocation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qaR-Ui-UOp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zp-8P-Ol5">
                                 <rect key="frame" x="417" y="395" width="80" height="30"/>
@@ -60,6 +69,9 @@
                                 <state key="normal" title="Get Name">
                                     <color key="titleColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="getNameOfCurrentLocation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="v2l-Bn-wUr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -94,6 +106,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tracker" image="first" id="acW-dT-cKf"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="getNameButton" destination="9Zp-8P-Ol5" id="j8B-29-T82"/>
+                        <outlet property="locateButton" destination="rBc-zw-iRO" id="1vL-qf-aHk"/>
+                        <outlet property="locationNameTextField" destination="JDS-bk-uqR" id="NU9-4W-vRc"/>
+                        <outlet property="mapView" destination="tp6-sL-tR2" id="PIc-WK-g9C"/>
+                        <outlet property="proximitySegmentedControl" destination="qpP-r2-A9G" id="XNt-e2-0cO"/>
+                        <outlet property="trackPointButton" destination="xLz-w5-HZg" id="ObA-Ae-0Ex"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="K1B-S6-7Bd" detailTextLabel="Bqw-T3-bGx" style="IBUITableViewCellStyleSubtitle" id="RfI-Uw-Tr6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogTableCell" textLabel="K1B-S6-7Bd" detailTextLabel="Bqw-T3-bGx" style="IBUITableViewCellStyleSubtitle" id="RfI-Uw-Tr6" customClass="LogTableCell" customModule="Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RfI-Uw-Tr6" id="hbT-2d-beb">
@@ -151,6 +171,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Log" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="tableView" destination="els-pj-EQf" id="5OR-LB-jHi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
