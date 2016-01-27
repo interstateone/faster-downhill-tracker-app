@@ -14,6 +14,7 @@
 		CA4E842E1C5886220039A317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4E842D1C5886220039A317 /* Assets.xcassets */; };
 		CA4E84311C5886220039A317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4E842F1C5886220039A317 /* LaunchScreen.storyboard */; };
 		CA4E843C1C5886220039A317 /* FasterDownhillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E843B1C5886220039A317 /* FasterDownhillTests.swift */; };
+		CA4E84491C588ACE0039A317 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4E84481C588ACE0039A317 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		CA4E84371C5886220039A317 /* FasterDownhillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FasterDownhillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4E843B1C5886220039A317 /* FasterDownhillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasterDownhillTests.swift; sourceTree = "<group>"; };
 		CA4E843D1C5886220039A317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA4E84481C588ACE0039A317 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4E84491C588ACE0039A317 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 		CA4E84181C5886220039A317 = {
 			isa = PBXGroup;
 			children = (
+				CA4E84481C588ACE0039A317 /* MapKit.framework */,
 				CA4E84231C5886220039A317 /* FasterDownhill */,
 				CA4E843A1C5886220039A317 /* FasterDownhillTests */,
 				CA4E84221C5886220039A317 /* Products */,
