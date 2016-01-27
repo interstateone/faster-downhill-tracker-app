@@ -15,6 +15,7 @@
 		CA4E84311C5886220039A317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4E842F1C5886220039A317 /* LaunchScreen.storyboard */; };
 		CA4E843C1C5886220039A317 /* FasterDownhillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E843B1C5886220039A317 /* FasterDownhillTests.swift */; };
 		CA4E84491C588ACE0039A317 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4E84481C588ACE0039A317 /* MapKit.framework */; };
+		CA4E844B1C588E130039A317 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E844A1C588E130039A317 /* Point.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		CA4E843B1C5886220039A317 /* FasterDownhillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasterDownhillTests.swift; sourceTree = "<group>"; };
 		CA4E843D1C5886220039A317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA4E84481C588ACE0039A317 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CA4E844A1C588E130039A317 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				CA4E84241C5886220039A317 /* AppDelegate.swift */,
 				CA4E84261C5886220039A317 /* TrackerViewController.swift */,
 				CA4E84281C5886220039A317 /* LogViewController.swift */,
+				CA4E844A1C588E130039A317 /* Point.swift */,
 				CA4E842A1C5886220039A317 /* Main.storyboard */,
 				CA4E842D1C5886220039A317 /* Assets.xcassets */,
 				CA4E842F1C5886220039A317 /* LaunchScreen.storyboard */,
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4E844B1C588E130039A317 /* Point.swift in Sources */,
 				CA4E84291C5886220039A317 /* LogViewController.swift in Sources */,
 				CA4E84251C5886220039A317 /* AppDelegate.swift in Sources */,
 				CA4E84271C5886220039A317 /* TrackerViewController.swift in Sources */,
