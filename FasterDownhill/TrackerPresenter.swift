@@ -29,6 +29,16 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
     }
 
     func updateNameOfCurrentLocation() {
+        guard let location = location else {
+            return
+        }
+
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            if let name = placemarks?.first?.name {
+                self?.view?.updateLocationName(name)
+            }
+        }
     }
 
     func trackPoint(name: String, inside: Bool) {
