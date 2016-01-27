@@ -1,5 +1,6 @@
 import UIKit
 import CoreLocation
+import MapKit
 
 final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
     private weak var view: TrackerView?
@@ -35,8 +36,23 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
 
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
-            if let name = placemarks?.first?.name {
-                self?.view?.updateLocationName(name)
+            if let placemarks = placemarks {
+                let annotations = placemarks.filter { placemark in
+                    return placemark.location != nil
+                }.map { placemark -> MKAnnotation in
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = placemark.location!.coordinate
+                    annotation.title = placemark.longDescription
+                    return annotation
+                }
+                self?.view?.updateMapAnnotations(annotations)
+
+                if let name = annotations.first?.title ?? "" {
+                    self?.view?.updateLocationName(name)
+                }
+            }
+            else if let error = error {
+                NSLog("Error reverse geocoding current location: %@", error)
             }
         }
     }
@@ -71,5 +87,12 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         NSLog("%@", error)
+    }
+}
+
+extension CLPlacemark {
+    var longDescription: String {
+        let strings = [name, locality, administrativeArea, country].flatMap { $0 }
+        return strings.joinWithSeparator(", ")
     }
 }

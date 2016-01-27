@@ -5,6 +5,7 @@ protocol TrackerView: class {
     func updateLocationName(name: String)
     func updateMapCenterLocation(location: CLLocation)
     func updateHasLocationPermission(hasPermission: Bool)
+    func updateMapAnnotations(annotations: [MKAnnotation])
 }
 
 final class TrackerViewController: UIViewController, TrackerView {
@@ -33,6 +34,11 @@ final class TrackerViewController: UIViewController, TrackerView {
 
     func updateHasLocationPermission(hasPermission: Bool) {
         mapView.showsUserLocation = hasPermission
+    }
+
+    func updateMapAnnotations(annotations: [MKAnnotation]) {
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.addAnnotations(annotations)
     }
 
     // MARK: Actions
