@@ -23,7 +23,9 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
         if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
         }
-        locationManager.startUpdatingLocation()
+        else {
+            locationManager.requestLocation()
+        }
     }
 
     func updateNameOfCurrentLocation() {
@@ -34,7 +36,7 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
 
     func applicationMovedToForeground(notification: NSNotification) {
         if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
         }
     }
 
@@ -46,9 +48,18 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         view?.updateHasLocationPermission(status == .AuthorizedWhenInUse)
+        if status == .AuthorizedWhenInUse {
+            locationManager.requestLocation()
+        }
     }
 
+    private var location: CLLocation? = nil
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        location = locations.first!
         view?.updateMapCenterLocation(locations.first!)
+    }
+
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        NSLog("%@", error)
     }
 }
