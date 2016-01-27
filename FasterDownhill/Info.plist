@@ -44,5 +44,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is used to, well, track you. That&apos;s what the app is for.</string>
 </dict>
 </plist>
