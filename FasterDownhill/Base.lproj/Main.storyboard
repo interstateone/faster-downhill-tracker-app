@@ -18,91 +18,116 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-sL-tR2">
-                                <rect key="frame" x="0.0" y="-20" width="600" height="465"/>
-                            </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qpP-r2-A9G">
-                                <rect key="frame" x="20" y="465" width="87" height="29"/>
-                                <segments>
-                                    <segment title="In"/>
-                                    <segment title="Near"/>
-                                </segments>
-                                <color key="tintColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeProximityType:" destination="9pv-A4-QxB" eventType="valueChanged" id="HmZ-c5-HiU"/>
-                                </connections>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JDS-bk-uqR">
-                                <rect key="frame" x="115" y="464" width="465" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-w5-HZg">
-                                <rect key="frame" x="20" y="501" width="560" height="30"/>
-                                <color key="backgroundColor" red="0.62529089095744683" green="0.48776462141251681" blue="0.36975990980798867" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Track Point">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="trackPoint:" destination="9pv-A4-QxB" eventType="touchUpInside" id="H7u-YU-kQg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBc-zw-iRO">
-                                <rect key="frame" x="505" y="395" width="80" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvi-xF-V36" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-sL-tR2">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="413.5"/>
+                                    </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBc-zw-iRO">
+                                        <rect key="frame" x="500" y="363" width="80" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="90r-El-Yii"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="I4S-rW-LwQ"/>
+                                            <constraint firstAttribute="height" constant="30" id="a7N-9J-ZjS"/>
+                                        </constraints>
+                                        <state key="normal" title="Locate">
+                                            <color key="titleColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="getCurrentLocation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qaR-Ui-UOp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zp-8P-Ol5">
+                                        <rect key="frame" x="412" y="363" width="80" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="7TE-qN-Rdj"/>
+                                            <constraint firstAttribute="height" constant="30" id="GSU-v6-BkC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="btm-xx-pQD"/>
+                                        </constraints>
+                                        <state key="normal" title="Get Name">
+                                            <color key="titleColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="getNameOfCurrentLocation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="v2l-Bn-wUr"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JDS-bk-uqR">
+                                        <rect key="frame" x="123" y="433" width="457" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-w5-HZg">
+                                        <rect key="frame" x="20" y="483" width="560" height="44"/>
+                                        <color key="backgroundColor" red="0.62529089095744683" green="0.48776462141251681" blue="0.36975990980798867" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="hRg-6y-hU4"/>
+                                        </constraints>
+                                        <state key="normal" title="Track Point">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="trackPoint:" destination="9pv-A4-QxB" eventType="touchUpInside" id="H7u-YU-kQg"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qpP-r2-A9G">
+                                        <rect key="frame" x="20" y="434" width="87" height="29"/>
+                                        <segments>
+                                            <segment title="In"/>
+                                            <segment title="Near"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="changeProximityType:" destination="9pv-A4-QxB" eventType="valueChanged" id="HmZ-c5-HiU"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="90r-El-Yii"/>
+                                    <constraint firstItem="JDS-bk-uqR" firstAttribute="top" secondItem="tp6-sL-tR2" secondAttribute="bottom" constant="20" id="2nN-4H-7eh"/>
+                                    <constraint firstAttribute="trailing" secondItem="xLz-w5-HZg" secondAttribute="trailing" constant="20" id="4HU-YQ-kJC"/>
+                                    <constraint firstItem="JDS-bk-uqR" firstAttribute="leading" secondItem="qpP-r2-A9G" secondAttribute="trailing" constant="16" id="6cM-SW-1zq"/>
+                                    <constraint firstItem="rBc-zw-iRO" firstAttribute="bottom" secondItem="tp6-sL-tR2" secondAttribute="bottom" constant="-20" id="8A5-Or-fRQ"/>
+                                    <constraint firstItem="qpP-r2-A9G" firstAttribute="centerY" secondItem="JDS-bk-uqR" secondAttribute="centerY" id="A6h-kz-uJD"/>
+                                    <constraint firstAttribute="trailing" secondItem="rBc-zw-iRO" secondAttribute="trailing" constant="20" id="Fve-1V-zoV"/>
+                                    <constraint firstItem="xLz-w5-HZg" firstAttribute="top" secondItem="JDS-bk-uqR" secondAttribute="bottom" constant="20" id="WfC-px-9a8"/>
+                                    <constraint firstItem="tp6-sL-tR2" firstAttribute="top" secondItem="nvi-xF-V36" secondAttribute="top" id="dUC-7F-zKt"/>
+                                    <constraint firstItem="tp6-sL-tR2" firstAttribute="leading" secondItem="nvi-xF-V36" secondAttribute="leading" id="ebl-Bh-ndp"/>
+                                    <constraint firstAttribute="trailing" secondItem="JDS-bk-uqR" secondAttribute="trailing" constant="20" id="fAq-qZ-lB8"/>
+                                    <constraint firstItem="rBc-zw-iRO" firstAttribute="leading" secondItem="9Zp-8P-Ol5" secondAttribute="trailing" constant="8" id="fax-sX-BFZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="xLz-w5-HZg" secondAttribute="bottom" constant="20" id="iK0-U2-snL"/>
+                                    <constraint firstItem="qpP-r2-A9G" firstAttribute="leading" secondItem="nvi-xF-V36" secondAttribute="leading" constant="20" id="j6K-mb-BY0"/>
+                                    <constraint firstAttribute="trailing" secondItem="tp6-sL-tR2" secondAttribute="trailing" id="kQ1-PK-0cu"/>
+                                    <constraint firstItem="xLz-w5-HZg" firstAttribute="leading" secondItem="nvi-xF-V36" secondAttribute="leading" constant="20" id="mCT-oJ-S7p"/>
+                                    <constraint firstItem="9Zp-8P-Ol5" firstAttribute="centerY" secondItem="rBc-zw-iRO" secondAttribute="centerY" id="n61-fq-nya"/>
+                                    <constraint firstItem="tp6-sL-tR2" firstAttribute="height" secondItem="nvi-xF-V36" secondAttribute="height" multiplier="0.75" id="s2N-jA-UyJ"/>
+                                    <constraint firstItem="tp6-sL-tR2" firstAttribute="width" secondItem="nvi-xF-V36" secondAttribute="width" id="yhX-bp-2Xu"/>
                                 </constraints>
-                                <state key="normal" title="Locate">
-                                    <color key="titleColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getCurrentLocation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="qaR-Ui-UOp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zp-8P-Ol5">
-                                <rect key="frame" x="417" y="395" width="80" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="7TE-qN-Rdj"/>
-                                </constraints>
-                                <state key="normal" title="Get Name">
-                                    <color key="titleColor" red="0.62529089100000002" green="0.48776462139999999" blue="0.36975990980000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getNameOfCurrentLocation:" destination="9pv-A4-QxB" eventType="touchUpInside" id="v2l-Bn-wUr"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xLz-w5-HZg" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="4zm-Qs-eHZ"/>
-                            <constraint firstItem="tp6-sL-tR2" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" multiplier="0.5" id="8QX-X8-SZF"/>
-                            <constraint firstItem="9Zp-8P-Ol5" firstAttribute="bottom" secondItem="tp6-sL-tR2" secondAttribute="bottom" constant="-20" id="9Yb-IB-9Nn"/>
-                            <constraint firstItem="xLz-w5-HZg" firstAttribute="top" secondItem="JDS-bk-uqR" secondAttribute="bottom" constant="7" id="B6r-hx-ipn"/>
-                            <constraint firstAttribute="trailing" secondItem="rBc-zw-iRO" secondAttribute="trailing" constant="15" id="Bwh-bQ-BMO"/>
-                            <constraint firstAttribute="trailing" secondItem="xLz-w5-HZg" secondAttribute="trailing" constant="20" id="EZ4-cI-OHO"/>
-                            <constraint firstItem="JDS-bk-uqR" firstAttribute="leading" secondItem="qpP-r2-A9G" secondAttribute="trailing" constant="8" id="HlF-bu-bN8"/>
-                            <constraint firstAttribute="trailing" secondItem="tp6-sL-tR2" secondAttribute="trailing" id="LEv-bh-f9T"/>
-                            <constraint firstItem="JDS-bk-uqR" firstAttribute="centerY" secondItem="qpP-r2-A9G" secondAttribute="centerY" id="MVo-Fm-ItW"/>
-                            <constraint firstItem="qpP-r2-A9G" firstAttribute="top" secondItem="tp6-sL-tR2" secondAttribute="bottom" constant="20" id="Mev-40-X78"/>
-                            <constraint firstItem="qpP-r2-A9G" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" id="Upj-rT-n1x"/>
-                            <constraint firstItem="tp6-sL-tR2" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="UqI-LA-Xqz"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="xLz-w5-HZg" secondAttribute="bottom" constant="20" id="WXH-UE-siF"/>
-                            <constraint firstItem="tp6-sL-tR2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-20" id="gIz-kk-a25"/>
-                            <constraint firstItem="rBc-zw-iRO" firstAttribute="bottom" secondItem="tp6-sL-tR2" secondAttribute="bottom" constant="-20" id="qSf-SW-7Ss"/>
-                            <constraint firstAttribute="trailing" secondItem="9Zp-8P-Ol5" secondAttribute="trailing" constant="20" id="sXg-ow-b64"/>
-                            <constraint firstItem="rBc-zw-iRO" firstAttribute="leading" secondItem="tp6-sL-tR2" secondAttribute="trailing" constant="-95" id="tRd-Wv-bwB"/>
-                            <constraint firstAttribute="trailing" secondItem="JDS-bk-uqR" secondAttribute="trailing" constant="20" id="wMt-qm-lbL"/>
-                            <constraint firstItem="rBc-zw-iRO" firstAttribute="leading" secondItem="9Zp-8P-Ol5" secondAttribute="trailing" constant="8" id="zWh-Dy-iBa"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="nvi-xF-V36" secondAttribute="bottom" id="BT7-CJ-yGZ"/>
+                            <constraint firstItem="nvi-xF-V36" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="XPv-ft-hiW"/>
+                            <constraint firstAttribute="trailing" secondItem="nvi-xF-V36" secondAttribute="trailing" id="nxU-fg-tUQ"/>
+                            <constraint firstItem="nvi-xF-V36" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="qnT-TR-I5O"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8QX-X8-SZF"/>
-                                <exclude reference="sXg-ow-b64"/>
-                                <exclude reference="tRd-Wv-bwB"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tracker" image="first" id="acW-dT-cKf"/>
                     <nil key="simulatedStatusBarMetrics"/>
