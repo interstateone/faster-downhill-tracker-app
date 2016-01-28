@@ -16,8 +16,15 @@ final class LogPresenter {
         let viewModels = service.points.map { point -> PointViewModel in
             let name = point.inside ? "In " : "Near " + point.name
             let date = timeIntervalFormatter.stringForTimeInterval(point.date.timeIntervalSinceDate(now))
-            return PointViewModel(name: name, date: date)
+            return PointViewModel(name: name, date: date, synced: point.synced)
         }
         view?.updatePointViewModels(viewModels)
+    }
+
+    func syncPoints() {
+        service.syncPoints { [weak self] in
+            self?.updatePoints()
+            self?.view?.endRefreshing()
+        }
     }
 }

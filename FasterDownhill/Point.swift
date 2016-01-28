@@ -5,6 +5,7 @@ final class Point: NSObject, NSCoding {
     let inside: Bool
     let date: NSDate
     let coordinates: CLLocationCoordinate2D
+    var synced: Bool = false
 
     init(name: String, inside: Bool, date: NSDate = NSDate(), coordinates: CLLocationCoordinate2D) {
         self.name = name
@@ -21,6 +22,7 @@ final class Point: NSObject, NSCoding {
         aCoder.encodeObject(date, forKey: "date")
         aCoder.encodeDouble(coordinates.latitude, forKey: "latitude")
         aCoder.encodeDouble(coordinates.longitude, forKey: "longitude")
+        aCoder.encodeBool(synced, forKey: "synced")
     }
 
     init?(coder aDecoder: NSCoder) {
@@ -30,6 +32,7 @@ final class Point: NSObject, NSCoding {
         let latitude = aDecoder.decodeDoubleForKey("latitude")
         let longitude = aDecoder.decodeDoubleForKey("longitude")
         coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        synced = aDecoder.decodeBoolForKey("synced")
     }
 }
 

@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 
 final class PointService {
 
@@ -37,4 +38,33 @@ final class PointService {
     }
 
     // MARK: Point Submission
+
+    func syncPoints(completion: () -> Void) {
+        let uploadGroup = dispatch_group_create()
+        points.filter { $0.synced == false }.forEach { [weak self] point in
+            dispatch_group_enter(uploadGroup)
+            self?.uploadPoint(point) { point in
+                point.synced = true
+                dispatch_group_leave(uploadGroup)
+            }
+        }
+        
+        dispatch_group_notify(uploadGroup, dispatch_get_main_queue()) { [weak self] in
+            guard let _self = self else { return }
+            _self.savePoints(_self.points)
+            completion()
+        }
+    }
+
+    private func uploadPoint(point: Point, success: (Point) -> Void) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue()) {
+            success(point)
+        }
+//        Alamofire.request(.POST, "http://").responseJSON { response in
+//            switch response.result {
+//            case .Success: success(point)
+//            case .Failure(let error): NSLog("Error uploading point: %@", error)
+//            }
+//        }
+    }
 }
