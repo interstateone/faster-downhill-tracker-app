@@ -5,6 +5,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        AppStyle.applyStyle()
+
         let pointService = PointService()
         pointService.loadPoints()
 
