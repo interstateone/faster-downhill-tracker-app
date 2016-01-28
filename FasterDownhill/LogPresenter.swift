@@ -1,14 +1,10 @@
 import Foundation
+import FormatterKit
 
 final class LogPresenter {
     private weak var view: LogViewType?
     private let service: PointService
-    private let dateFormatter: NSDateFormatter = {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.doesRelativeDateFormatting = true
-        return dateFormatter
-    }()
+    private let timeIntervalFormatter = TTTTimeIntervalFormatter()
 
     init(view: LogViewType, service: PointService) {
         self.view = view
@@ -16,6 +12,12 @@ final class LogPresenter {
     }
 
     func updatePoints() {
-        view?.updatePointViewModels(service.points.map { PointViewModel(name: $0.name, date: dateFormatter.stringFromDate($0.date)) })
+        let now = NSDate()
+        let viewModels = service.points.map { point -> PointViewModel in
+            let name = point.inside ? "In " : "Near " + point.name
+            let date = timeIntervalFormatter.stringForTimeInterval(point.date.timeIntervalSinceDate(now))
+            return PointViewModel(name: name, date: date)
+        }
+        view?.updatePointViewModels(viewModels)
     }
 }
