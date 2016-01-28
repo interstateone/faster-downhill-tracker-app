@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		454015FFC29FD3B53B315804 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116B884A0B2374CF15746C60 /* Pods.framework */; };
 		CA1F38091C59BE3000EE1109 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F38081C59BE3000EE1109 /* UIKitExtensions.swift */; };
+		CA1F380B1C59C09600EE1109 /* PointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F380A1C59C09600EE1109 /* PointService.swift */; };
 		CA4E84251C5886220039A317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E84241C5886220039A317 /* AppDelegate.swift */; };
 		CA4E84271C5886220039A317 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E84261C5886220039A317 /* TrackerViewController.swift */; };
 		CA4E84291C5886220039A317 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E84281C5886220039A317 /* LogViewController.swift */; };
@@ -18,7 +19,6 @@
 		CA4E843C1C5886220039A317 /* FasterDownhillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E843B1C5886220039A317 /* FasterDownhillTests.swift */; };
 		CA4E84491C588ACE0039A317 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4E84481C588ACE0039A317 /* MapKit.framework */; };
 		CA4E844B1C588E130039A317 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E844A1C588E130039A317 /* Point.swift */; };
-		CA4E844D1C588F410039A317 /* TrackerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E844C1C588F410039A317 /* TrackerService.swift */; };
 		CA4E844F1C588F520039A317 /* TrackerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E844E1C588F520039A317 /* TrackerPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,7 @@
 		1F7D9AEA840EC4253DA381D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		48D0FA351B6F590135C3DA97 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA1F38081C59BE3000EE1109 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		CA1F380A1C59C09600EE1109 /* PointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointService.swift; sourceTree = "<group>"; };
 		CA4E84211C5886220039A317 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4E84241C5886220039A317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA4E84261C5886220039A317 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		CA4E843D1C5886220039A317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA4E84481C588ACE0039A317 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CA4E844A1C588E130039A317 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		CA4E844C1C588F410039A317 /* TrackerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerService.swift; sourceTree = "<group>"; };
 		CA4E844E1C588F520039A317 /* TrackerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,8 +119,8 @@
 				CA4E84261C5886220039A317 /* TrackerViewController.swift */,
 				CA4E844E1C588F520039A317 /* TrackerPresenter.swift */,
 				CA4E84281C5886220039A317 /* LogViewController.swift */,
-				CA4E844C1C588F410039A317 /* TrackerService.swift */,
 				CA4E844A1C588E130039A317 /* Point.swift */,
+				CA1F380A1C59C09600EE1109 /* PointService.swift */,
 				CA1F38081C59BE3000EE1109 /* UIKitExtensions.swift */,
 				CA4E842A1C5886220039A317 /* Main.storyboard */,
 				CA4E842D1C5886220039A317 /* Assets.xcassets */,
@@ -292,9 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA1F380B1C59C09600EE1109 /* PointService.swift in Sources */,
 				CA4E844B1C588E130039A317 /* Point.swift in Sources */,
 				CA4E84291C5886220039A317 /* LogViewController.swift in Sources */,
-				CA4E844D1C588F410039A317 /* TrackerService.swift in Sources */,
 				CA4E84251C5886220039A317 /* AppDelegate.swift in Sources */,
 				CA4E84271C5886220039A317 /* TrackerViewController.swift in Sources */,
 				CA1F38091C59BE3000EE1109 /* UIKitExtensions.swift in Sources */,

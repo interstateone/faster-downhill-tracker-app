@@ -4,10 +4,12 @@ import MapKit
 
 final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
     private weak var view: TrackerView?
+    private let service: PointService
     private let locationManager = CLLocationManager()
 
-    init(view: TrackerView) {
+    init(view: TrackerView, service: PointService) {
         self.view = view
+        self.service = service
         super.init()
 
         locationManager.delegate = self
@@ -58,6 +60,11 @@ final class TrackerPresenter: NSObject, CLLocationManagerDelegate {
     }
 
     func trackPoint(name: String, inside: Bool) {
+        guard let location = location else {
+            NSLog("Can't track a point without knowing the current location.")
+            return
+        }
+        service.addPoint(Point(name: name, inside: inside, date: NSDate(), coordinates: location.coordinate))
     }
 
     func applicationMovedToForeground(notification: NSNotification) {

@@ -5,11 +5,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let pointService = PointService()
+        pointService.loadPoints()
 
         let tabController = window!.rootViewController as! UITabBarController
         let trackerViewController = tabController.viewControllers![0] as! TrackerViewController
-        trackerViewController.presenter = TrackerPresenter(view: trackerViewController)
+        trackerViewController.presenter = TrackerPresenter(view: trackerViewController, service: pointService)
         let logViewController = tabController.viewControllers![1] as! LogViewController
 
         return true
