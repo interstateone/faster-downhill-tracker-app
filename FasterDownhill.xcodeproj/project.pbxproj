@@ -10,6 +10,7 @@
 		454015FFC29FD3B53B315804 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116B884A0B2374CF15746C60 /* Pods.framework */; };
 		CA1F38091C59BE3000EE1109 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F38081C59BE3000EE1109 /* UIKitExtensions.swift */; };
 		CA1F380B1C59C09600EE1109 /* PointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F380A1C59C09600EE1109 /* PointService.swift */; };
+		CA1F380D1C59C65100EE1109 /* LogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1F380C1C59C65100EE1109 /* LogPresenter.swift */; };
 		CA4E84251C5886220039A317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E84241C5886220039A317 /* AppDelegate.swift */; };
 		CA4E84271C5886220039A317 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E84261C5886220039A317 /* TrackerViewController.swift */; };
 		CA4E84291C5886220039A317 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E84281C5886220039A317 /* LogViewController.swift */; };
@@ -38,6 +39,7 @@
 		48D0FA351B6F590135C3DA97 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA1F38081C59BE3000EE1109 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		CA1F380A1C59C09600EE1109 /* PointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointService.swift; sourceTree = "<group>"; };
+		CA1F380C1C59C65100EE1109 /* LogPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogPresenter.swift; sourceTree = "<group>"; };
 		CA4E84211C5886220039A317 /* Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4E84241C5886220039A317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA4E84261C5886220039A317 /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				CA4E84261C5886220039A317 /* TrackerViewController.swift */,
 				CA4E844E1C588F520039A317 /* TrackerPresenter.swift */,
 				CA4E84281C5886220039A317 /* LogViewController.swift */,
+				CA1F380C1C59C65100EE1109 /* LogPresenter.swift */,
 				CA4E844A1C588E130039A317 /* Point.swift */,
 				CA1F380A1C59C09600EE1109 /* PointService.swift */,
 				CA1F38081C59BE3000EE1109 /* UIKitExtensions.swift */,
@@ -299,6 +302,7 @@
 				CA4E84271C5886220039A317 /* TrackerViewController.swift in Sources */,
 				CA1F38091C59BE3000EE1109 /* UIKitExtensions.swift in Sources */,
 				CA4E844F1C588F520039A317 /* TrackerPresenter.swift in Sources */,
+				CA1F380D1C59C65100EE1109 /* LogPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

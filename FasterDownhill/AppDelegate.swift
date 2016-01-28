@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let trackerViewController = tabController.viewControllers![0] as! TrackerViewController
         trackerViewController.presenter = TrackerPresenter(view: trackerViewController, service: pointService)
         let logViewController = tabController.viewControllers![1] as! LogViewController
+        logViewController.presenter = LogPresenter(view: logViewController, service: pointService)
 
         return true
     }

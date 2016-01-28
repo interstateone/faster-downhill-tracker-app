@@ -21,7 +21,10 @@ final class PointService {
     private func savePoints(points: [Point]) {
         dispatch_async(queue) {
             let data = NSKeyedArchiver.archivedDataWithRootObject(points)
-            data.writeToURL(PointService.fileURL, atomically: true)
+            let success = data.writeToURL(PointService.fileURL, atomically: true)
+            if !success {
+                NSLog("Failed to write points to file.")
+            }
         }
     }
 
