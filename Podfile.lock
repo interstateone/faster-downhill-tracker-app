@@ -1,10 +1,13 @@
 PODS:
+  - FormatterKit/TimeIntervalFormatter (1.8.0)
   - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
+  - FormatterKit/TimeIntervalFormatter (~> 1.8.0)
   - TPKeyboardAvoiding (~> 1.2.11)
 
 SPEC CHECKSUMS:
+  FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
 COCOAPODS: 0.39.0

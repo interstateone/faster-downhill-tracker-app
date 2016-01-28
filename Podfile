@@ -4,4 +4,5 @@ platform :ios, '9.0'
 use_frameworks!
 
 pod 'TPKeyboardAvoiding', '~> 1.2.11'
+pod 'FormatterKit/TimeIntervalFormatter', '~> 1.8.0'
 
