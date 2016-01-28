@@ -129,7 +129,7 @@
                             <constraint firstItem="nvi-xF-V36" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="qnT-TR-I5O"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tracker" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Tracker" image="TrackerTab" id="acW-dT-cKf"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="getNameButton" destination="9Zp-8P-Ol5" id="j8B-29-T82"/>
@@ -183,7 +183,7 @@
                             <outlet property="delegate" destination="ftk-Ht-GT3" id="Gs7-An-iqA"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Log" image="second" id="FJn-zy-sVa"/>
+                    <tabBarItem key="tabBarItem" title="Log" image="LogTab" id="FJn-zy-sVa"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="EHZ-bh-2hF">
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -218,7 +218,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="LogTab" width="30" height="19"/>
+        <image name="TrackerTab" width="30" height="30"/>
     </resources>
 </document>
