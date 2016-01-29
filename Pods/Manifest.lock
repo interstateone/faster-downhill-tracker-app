@@ -1,16 +1,23 @@
 PODS:
   - Alamofire (3.1.5)
   - FormatterKit/TimeIntervalFormatter (1.8.0)
+  - Keys (1.0.0)
   - TPKeyboardAvoiding (1.2.11)
 
 DEPENDENCIES:
   - Alamofire (~> 3.1.5)
   - FormatterKit/TimeIntervalFormatter (~> 1.8.0)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - TPKeyboardAvoiding (~> 1.2.11)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
+  Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
 
 COCOAPODS: 0.39.0
