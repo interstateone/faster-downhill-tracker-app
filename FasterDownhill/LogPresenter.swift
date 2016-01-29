@@ -13,18 +13,20 @@ final class LogPresenter {
 
     func updatePoints() {
         let now = NSDate()
-        let viewModels = service.points.map { point -> PointViewModel in
-            let name = point.inside ? "In " : "Near " + point.name
+        let viewModels = service.points.sort { $0.date.compare($1.date) == .OrderedDescending }.map { point -> PointViewModel in
+            let name = point.inside ? "In \(point.name)" : "Near \(point.name)"
             let date = timeIntervalFormatter.stringForTimeInterval(point.date.timeIntervalSinceDate(now))
             return PointViewModel(name: name, date: date, synced: point.synced)
         }
         view?.updatePointViewModels(viewModels)
     }
-
+    
     func syncPoints() {
-        service.syncPoints { [weak self] in
-            self?.updatePoints()
-            self?.view?.endRefreshing()
+        service.uploadNewPointsToServer { [weak self] in
+            self?.service.updateWithPointsFromServer {
+                self?.updatePoints()
+                self?.view?.endRefreshing()
+            }
         }
     }
 }

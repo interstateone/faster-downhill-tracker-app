@@ -34,6 +34,42 @@ final class Point: NSObject, NSCoding {
         coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         synced = aDecoder.decodeBoolForKey("synced")
     }
+
+    // MARK: JSON
+
+    static let JSONDateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter
+    }()
+
+    func JSONRepresentation() -> [String: AnyObject] {
+        let pointJSON: [String: AnyObject] = [
+            "name": name,
+            "inside": inside,
+            "date": Point.JSONDateFormatter.stringFromDate(date),
+            "longitude": coordinates.longitude,
+            "latitude": coordinates.latitude
+        ]
+        return pointJSON
+    }
+
+    convenience init?(json: [String: AnyObject]) {
+        if let name = json["name"] as? String,
+               inside = json["inside"] as? Bool,
+               dateString = json["date"] as? String,
+               date = Point.JSONDateFormatter.dateFromString(dateString),
+               coordinates = json["coordinates"] as? [Double],
+               longitude = coordinates[safe: 0],
+               latitude = coordinates[safe: 1] {
+                self.init(name: name, inside: inside, date: date, coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                synced = true
+                return
+        }
+        return nil
+    }
 }
 
 func ==(lhs: Point, rhs: Point) -> Bool {

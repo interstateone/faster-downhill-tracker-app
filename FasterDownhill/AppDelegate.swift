@@ -8,7 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppStyle.applyStyle()
 
         let pointService = PointService()
-        pointService.loadPoints()
+        pointService.loadPointsFromFile()
+        pointService.updateWithPointsFromServer {}
 
         let tabController = window!.rootViewController as! UITabBarController
         let trackerViewController = tabController.viewControllers![0] as! TrackerViewController
